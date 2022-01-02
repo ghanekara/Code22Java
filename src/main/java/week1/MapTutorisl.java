@@ -10,7 +10,7 @@ public class MapTutorisl {
     public static void main(String args[]){
         MapTutorisl obj = new MapTutorisl();
         obj.mapDemo();
-
+obj.mapDemo2();
         }
 
         public void mapDemo(){
@@ -23,5 +23,19 @@ public class MapTutorisl {
                 System.out.print(me.getKey() + ":");
                 System.out.println(me.getValue());
             }
+        }
+// 2nd Jan 2022
+        public void mapDemo2(){
+        Map<String, String> myMap = new HashMap<>();
+        myMap.put("QAGP-120","Pass");
+        myMap.put("QAGP-121","Pass");
+        myMap.put("QAGP-122","Fail");
+        myMap.put("QAGP-123","Fail");
+        myMap.put("QAGP-124","Skip");
+        for(Map.Entry<String, String> elmSet : myMap.entrySet()){
+            System.out.println(elmSet.getKey());
+            System.out.println(elmSet.getValue());
+        }
+
         }
 }
