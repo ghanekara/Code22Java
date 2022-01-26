@@ -13,19 +13,8 @@ public class JavaChallengers001 {
 //        JavaChallengers001 jc1 = new JavaChallengers001();
         JavaChallengers001 jc2 = new JavaChallengers001();
 //        jc1.predicateNegate();
-//        jc1.filework();
-//        jc1.predicate04();
-//        jc1.findingNeo();
-//        jc1.findingNeo();
-//        jc1.findingNeo2();
-//        jc1.predicate01();
-//        jc1.predicate05();
-//        jc1.predicate06();
-//        jc1.predicate051();
-//        jc1.predicate031();
-//        jc1.predicate02();
-//        jc2.prdicateStringAnd();
-        jc2.predicateBetter();
+//        jc2.predicateBetter();
+        jc2.predicateWithClass();
     }
 
     // 9Jan22
@@ -158,6 +147,27 @@ public class JavaChallengers001 {
         System.out.println(collect);
     }
 
+    //https://mkyong.com/java8/java-8-predicate-examples/
+// 22Jan22-23-Jan22
+    public void predicateWithClass(){
 
+        Hosting h1 = new Hosting(1, "amazon", "aws.amazon.com");
+        Hosting h2 = new Hosting(2, "linode", "linode.com");
+        Hosting h3 = new Hosting(3, "liquidweb", "liquidweb.com");
+        Hosting h4 = new Hosting(4, "google", "google.com");
+
+        List<Hosting> list = Arrays.asList(new Hosting[]{h1, h2, h3, h4});
+        List<Hosting> result = HostingRepository.filterHosting(list, x -> x.getName().startsWith("g"));
+        System.out.println("result : ");  // google
+        System.out.println(result.get(0).getName());  // google
+
+        List<Hosting> result2 = HostingRepository.filterHosting(list, isDeveloperFriendly());
+        System.out.println("result2 : " + result2);
+        System.out.println(result2.get(0).getName());
+    }
+//23-Jan-22
+    public static Predicate<Hosting> isDeveloperFriendly() {
+        return n -> n.getName().equals("linode");
+    }
 
 }
